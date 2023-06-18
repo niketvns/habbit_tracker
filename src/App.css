@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-primary{
+    @apply bg-[#151221]
+}
+.bg-success{
+    @apply bg-[#51fb51]
+}
+.bg-secondary{
+    @apply bg-[#6b4ce6]
+}
+
+:root {
+    --color-primary: #6b4ce6; /** bg, button-color **/
+    --color-secondary: #d6ccff;
+    --color-success: #51fb51;
+    --color-danger: #fb5151;  /** button-color-in-some-case icon-number **/
+    --color-dark: #241e38; /** bg-section **/
+    --color-black: #151221;  /** bg-body **/
+}
