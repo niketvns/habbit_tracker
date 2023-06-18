@@ -12,6 +12,10 @@
     @apply bg-[#6b4ce6]
 }
 
+nav .active{
+    @apply bg-green-500
+}
+
 :root {
     --color-primary: #6b4ce6; /** bg, button-color **/
     --color-secondary: #d6ccff;

@@ -13,11 +13,11 @@ const HabitProvider = ({children}) => {
     }
 
     const archiveHabit = (id) => {
-        setHabits(prevState => prevState.map(habit => habit.id === id ? {...habit, isArchived: true} : habit ))
+        setHabits(prevState => prevState.map(habit => habit.id === id ? {...habit, category: 'archieved'} : habit ))
     }
 
     const trashHabit = (id) => {
-        setHabits(prevState => prevState.map(habit => habit.id === id ? {...habit, isInTrash: true} : habit ))
+        setHabits(prevState => prevState.map(habit => habit.id === id ? {...habit, category: 'trash'} : habit ))
     }
 
     return(

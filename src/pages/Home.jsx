@@ -14,7 +14,7 @@ const Home = () => {
                 Create New Habit
             </div>
             {
-                habits.map(habit => (
+                habits.filter(habit => habit.category === 'home').map(habit => (
                     <HabitCard key={habit.id} habit={habit}/>
                 ))
             }

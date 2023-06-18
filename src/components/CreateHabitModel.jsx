@@ -7,8 +7,7 @@ const CreateHabitModel = ({setCreateModel}) => {
         name: "",
         start: "",
         repeat: "",
-        isArchived: false,
-        isInTrash: false,
+        category: "home",
         goal: "",
         timeOfDay: ""
     })
