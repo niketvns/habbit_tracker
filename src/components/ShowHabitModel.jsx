@@ -9,7 +9,7 @@ const ShowHabitModel = ({habit, setShowHabit}) => {
 
 
     return (
-        <div className={'show-habit bg-black/40 fixed inset-0 text-white flex justify-center items-center'}>
+        <div className={'show-habit bg-black/60 fixed inset-0 text-white flex justify-center items-center'}>
             <div className="habit-card border-2 border-white/40 bg-primary p-2 rounded-lg w-full sm:w-[500px] text-cyan-900 font-bold">
                 <h1 className={'text-xl py-2'}>Habit: {name}</h1>
                 <p><span className={'font-bold text-lg'}>Goal:</span> {goal}</p>

@@ -21,6 +21,11 @@ nav .active{
     background-size: 100% 100%;
 }
 
+.create-habit-card{
+    background-image: url("./images/create.jpg");
+    background-size: 100% 100%;
+}
+
 :root {
     --color-primary: #6b4ce6; /** bg, button-color **/
     --color-secondary: #d6ccff;
