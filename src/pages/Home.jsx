@@ -10,7 +10,7 @@ const Home = () => {
 
     return (
         <div className={'home flex justify-center flex-wrap gap-2 py-8 px-2'}>
-            <div className={'habit-card bg-success w-80 h-40 rounded-lg p-4 text-cyan-900 text-2xl cursor-pointer'} onClick={()=>setCreateModel(prevState => !prevState)}>
+            <div className={'create-habit-card bg-secondary w-80 h-40 rounded-lg p-4 text-white text-2xl cursor-pointer'} onClick={()=>setCreateModel(prevState => !prevState)}>
                 Create New Habit
             </div>
             {

@@ -6,7 +6,7 @@ const HabitCard = ({habit}) => {
 
     return (
         <>
-            <div className={'habit-card bg-secondary w-80 h-40 rounded-lg p-4 text-white cursor-pointer'} onClick={()=>setShowHabit(true)}>
+            <div className={'habit-card bg-secondary w-80 h-40 rounded-lg p-4 text-cyan-900 font-bold cursor-pointer'} onClick={()=>setShowHabit(true)}>
                 <h1 className={'text-2xl'}>{habit.name}</h1>
                 <p>Started: {habit.start}</p>
             </div>

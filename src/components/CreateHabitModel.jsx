@@ -41,7 +41,7 @@ const CreateHabitModel = ({curHabit, setCreateModel, isEdit}) => {
 
     return (
         <div className={'create-habit bg-black/40 fixed inset-0 text-white flex justify-center items-center'}>
-            <div className="habit-card border-2 border-white/40 bg-primary p-2 rounded-lg w-full sm:w-[500px]">
+            <div className="create-habit-card border-2 border-white/40 bg-primary p-2 rounded-lg w-full sm:w-[500px]">
                 <h1 className={'text-2xl py-2'}>New Habit</h1>
                 <form onSubmit={handleSubmit} className={'flex flex-col gap-2 p-3'}>
                     <label htmlFor="name" className={'flex flex-col'}>
