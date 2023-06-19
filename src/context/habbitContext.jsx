@@ -5,7 +5,8 @@ import {v4 as uuid} from "uuid";
 const habitContext = createContext()
 
 const HabitProvider = ({children}) => {
-    const [habits, setHabits] = useState(allHabits)
+    const [habits, setHabits] = useState(allHabits);
+
 
     console.log(habits)
     const addHabit = (habit) => {
@@ -21,7 +22,7 @@ const HabitProvider = ({children}) => {
     }
 
     return(
-        <habitContext.Provider value={{habits, setHabits, addHabit, archiveHabit, trashHabit}}>
+        <habitContext.Provider value={{habits, setHabits, addHabit, archiveHabit, trashHabit, editHabit, isEdit, setIsEdit}}>
             {children}
         </habitContext.Provider>
     )
