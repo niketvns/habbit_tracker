@@ -1,7 +1,9 @@
 import {useState} from "react";
 import {useGlobalHabits} from "../context/habbitContext.jsx";
+import CreateHabitModel from "./CreateHabitModel.jsx";
 
 const ShowHabitModel = ({habit, setShowHabit}) => {
+    const [isEdit, setIsEdit] = useState(false)
     const {name, goal, start, timeOfDay, repeat} = habit;
     const {trashHabit, archiveHabit} = useGlobalHabits()
 
@@ -21,7 +23,7 @@ const ShowHabitModel = ({habit, setShowHabit}) => {
                     {
                         habit.category === 'home' &&
                         <>
-                            <button className={'bg-blue-300 p-2 px-3 cursor-pointer rounded-lg text-cyan-900'}>Edit
+                            <button className={'bg-blue-300 p-2 px-3 cursor-pointer rounded-lg text-cyan-900'} onClick={()=>setIsEdit(true)}>Edit
                             </button>
                             <button className={'bg-red-400 p-2 px-3 cursor-pointer rounded-lg text-cyan-900'}
                                     onClick={() => trashHabit(habit.id)}>Trash
@@ -33,6 +35,10 @@ const ShowHabitModel = ({habit, setShowHabit}) => {
                     }
                 </div>
             </div>
+            {
+                isEdit &&
+                <CreateHabitModel curHabit={habit} isEdit={isEdit} setCreateModel={setIsEdit}/>
+            }
         </div>
     );
 };

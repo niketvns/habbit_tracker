@@ -1,7 +1,7 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useGlobalHabits} from "../context/habbitContext.jsx";
 
-const CreateHabitModel = ({setCreateModel}) => {
+const CreateHabitModel = ({curHabit, setCreateModel, isEdit}) => {
     const [habit, setHabit] = useState({
         thumbnail: "",
         name: "",
@@ -12,7 +12,13 @@ const CreateHabitModel = ({setCreateModel}) => {
         timeOfDay: ""
     })
 
-    const {addHabit} = useGlobalHabits()
+    useEffect(()=>{
+        if(isEdit){
+            setHabit(curHabit)
+        }
+    },[])
+
+    const {addHabit, removeHabit} = useGlobalHabits()
 
     const handleDiscard = (e) => {
         e.preventDefault()
@@ -21,6 +27,9 @@ const CreateHabitModel = ({setCreateModel}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if(isEdit){
+            removeHabit(habit.id)
+        }
         addHabit(habit);
         setCreateModel(false)
     }
@@ -37,12 +46,12 @@ const CreateHabitModel = ({setCreateModel}) => {
                 <form onSubmit={handleSubmit} className={'flex flex-col gap-2 p-3'}>
                     <label htmlFor="name" className={'flex flex-col'}>
                         NAME*
-                        <input onChange={handleChange} type="text" name={'name'} id={'name'} className={'rounded-lg p-2 text-cyan-900'} placeholder={'Running 3 KM'} required={true}/>
+                        <input onChange={handleChange} type="text" name={'name'} id={'name'} className={'rounded-lg p-2 text-cyan-900'} placeholder={'Running 3 KM'} required={true} value={habit.name}/>
                     </label>
                     <div className="repeat-goal flex gap-2">
                         <label htmlFor="repeat" className={'flex flex-col w-[50%]'}>
                             REPEAT
-                            <select required={true} onChange={handleChange} name="repeat" id="repeat" className={'rounded-lg p-2 text-cyan-900 w-full'}>
+                            <select value={habit.repeat} required={true} onChange={handleChange} name="repeat" id="repeat" className={'rounded-lg p-2 text-cyan-900 w-full'}>
                                 <option disabled selected>-- Choose an option --</option>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
@@ -52,7 +61,7 @@ const CreateHabitModel = ({setCreateModel}) => {
                         </label>
                         <label htmlFor="goal" className={'flex flex-col w-[50%]'}>
                             GOAL
-                            <select required={true} onChange={handleChange} name="goal" id="goal" className={'rounded-lg p-2 text-cyan-900 w-full'}>
+                            <select value={habit.goal} required={true} onChange={handleChange} name="goal" id="goal" className={'rounded-lg p-2 text-cyan-900 w-full'}>
                                 <option disabled selected>-- Choose an option --</option>
                                 <option value="daily">1 Times Daily</option>
                                 <option value="weekly">2 Times Daily</option>
@@ -64,7 +73,7 @@ const CreateHabitModel = ({setCreateModel}) => {
                     <div className="repeat-goal flex gap-2">
                         <label htmlFor="timeOfDay" className={'flex flex-col w-[50%]'}>
                             TIME OF DAY
-                            <select required={true} onChange={handleChange} name="timeOfDay" id="timeOfDay" className={'rounded-lg p-2 text-cyan-900 w-full'}>
+                            <select value={habit.timeOfDay} required={true} onChange={handleChange} name="timeOfDay" id="timeOfDay" className={'rounded-lg p-2 text-cyan-900 w-full'}>
                                 <option disabled selected>-- Choose an option --</option>
                                 <option value="daily">Morning</option>
                                 <option value="weekly">Evening</option>

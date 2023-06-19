@@ -10,7 +10,7 @@ const HabitProvider = ({children}) => {
 
     console.log(habits)
     const addHabit = (habit) => {
-        setHabits(prevState => [...prevState, {id: uuid(), ...habit}])
+        setHabits(prevState => [{id: uuid(), ...habit}, ...prevState])
     }
 
     const archiveHabit = (id) => {
@@ -21,8 +21,12 @@ const HabitProvider = ({children}) => {
         setHabits(prevState => prevState.map(habit => habit.id === id ? {...habit, category: 'trash'} : habit ))
     }
 
+    const removeHabit = (id) => {
+        setHabits(prevState => prevState.filter(habit => habit.id !== id))
+    }
+
     return(
-        <habitContext.Provider value={{habits, setHabits, addHabit, archiveHabit, trashHabit, editHabit, isEdit, setIsEdit}}>
+        <habitContext.Provider value={{habits, setHabits, addHabit, archiveHabit, trashHabit, removeHabit}}>
             {children}
         </habitContext.Provider>
     )
